@@ -2,44 +2,50 @@
 #include <iostream>
 using namespace std;
 
+Onibus::Onibus(){
+    placa = "";
+    CAPACITY = 0;
+    current_size = 0;
+}
+
 Onibus::Onibus(string placa, int CAPACITY) {
     this->placa = placa;
     this->CAPACITY = CAPACITY;
     this->current_size = 0;
 }
 
-void Onibus::subir_passageiros(int qtd_passageiros) {
-    if (CAPACITY - current_size >= qtd_passageiros) {
-        current_size += qtd_passageiros;
+void Onibus::subir_passageiros(int num_passageiros) {
+    if (CAPACITY - current_size >= num_passageiros) {
+        current_size += num_passageiros;
         cout << "passageiros subiram com sucesso" << endl;
     } else {
-        cout << "ERRO: onibus lotado" << endl;
+        cout << "ERRO : onibus lotado" << endl;
     }
 
     return;
 }
 
-void Onibus::descer_passageiros(int qtd_passageiros) {
-    if (current_size >= qtd_passageiros) {
-        current_size -= qtd_passageiros;
+void Onibus::descer_passageiros(int num_passageiros) {
+    if (current_size >= num_passageiros) {
+        current_size -= num_passageiros;
         cout << "passageiros desceram com sucesso" << endl;
     } else {
-        cout << "ERRO: faltam passageiros" << endl;
+        cout << "ERRO : faltam passageiros" << endl;
     }
 
     return;
 }
 
-void Onibus::transfere_passageiros(Onibus* onibus_destino, int qtd_passageiros) {
+void Onibus::transfere_passageiros(Onibus* onibus_destino, int num_passageiros) {
     int vagas_onibus_destino = onibus_destino->CAPACITY - onibus_destino->current_size;
-    if ((this->current_size < qtd_passageiros) || (vagas_onibus_destino < qtd_passageiros)){
-        cout << "ERRO: transferencia cancelada" << endl;
+    if ((this->current_size < num_passageiros) || (vagas_onibus_destino < num_passageiros)){
+        cout << "ERRO : transferencia cancelada" << endl;
         return;
     }
 
-    this->current_size -= qtd_passageiros;
-    onibus_destino->current_size += qtd_passageiros;
-    cout << "tranferencia de passageiros efetuada" << endl;
+    this->current_size -= num_passageiros;
+    onibus_destino->current_size += num_passageiros;
+    cout << "transferencia de passageiros efetuada" << endl;
     return;
 }
 
