@@ -53,11 +53,15 @@ void Teste3() {
 
 
 int main(){
-    int a[10];
-    a[0] = 1;
-    a[9] = 69;
+    int op;
+    
+    cin >> op;
 
-    for (int i = 0; i < 10; i++)  {
-        cout << a[i] << " ";
-    }
+    if(op==1)
+        Teste1();
+    else if(op==2)
+        Teste2();
+    else if(op==3)
+        Teste3();
+
 }
